@@ -1,17 +1,11 @@
 import Head from 'next/head';
 import * as React from 'react';
+import AirbnbExample from '../components/AirbnbExample';
 import Navbar from '../components/Navbar';
 import PostCard from '../components/PostCard';
 import styles from '../styles/Home.module.css';
-import AirbnbExample from '../components/AirbnbExample'
-import { useColorMode } from '@chakra-ui/react';
-import { Button, Box, Image, StarIcon } from '@chakra-ui/react';
-
-
 
 export default function Home({ posts }) {
-
-    
 
     const randomProps = {
         param1: "abcdefg",
@@ -58,7 +52,6 @@ export async function getServerSideProps(ctx) {
     let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/posts`);
     // extract the data
     let data = await response.json();
-    console.log("data:", data)
 
     return {
         props: {

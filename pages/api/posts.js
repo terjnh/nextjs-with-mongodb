@@ -22,6 +22,10 @@ export default async function handler(req, res) {
         case 'DELETE': {
             return deletePost(req, res);
         }
+
+        case 'FINDONE': {
+            return findPostById(req, res);
+        }
     }
 }
 
@@ -101,6 +105,29 @@ async function deletePost(req, res) {
             message: 'Post deleted successfully',
             success: true,
         });
+    } catch (error) {
+        return res.json({
+            message: new Error(error).message,
+            success: false,
+        });
+    }
+}
+
+
+
+async function findPostById(req, res) {
+    try {
+        let { db } = await connectToDatabase();
+        console.log("postId:", postId)
+
+        let post = await db
+        .collection('posts')
+        .find({"_id" : ObjectId(req.body)})
+            return res.json({
+                message: JSON.parse(JSON.stringify(post)),
+                success: true,
+            });
+
     } catch (error) {
         return res.json({
             message: new Error(error).message,

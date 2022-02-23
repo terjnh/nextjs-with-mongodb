@@ -1,7 +1,16 @@
 1. Dependencies:
 - MongoDB
+    - $ npm install mongodb
 - Chakra
     - $ npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+- Formik
+    - $ npm install formik --save
+
+2. Built from reference:
+- https://www.section.io/engineering-education/build-nextjs-with-mongodb-and-deploy-on-vercel/
+- Initial app create:
+    - $ npx create-next-app nextjs-with-mongodb
+
 
 
 ### Before commiting code to git:

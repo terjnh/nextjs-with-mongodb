@@ -1,4 +1,4 @@
-import { Box, Center, Grid, GridItem, Heading } from '@chakra-ui/react';
+import { Box, Center, Grid, SimpleGrid, GridItem, Heading } from '@chakra-ui/react';
 import * as React from 'react';
 import Navbar from '../components/Navbar';
 import AltPostCard from '../components/AltPostCard';
@@ -35,14 +35,16 @@ export default function Posts({ posts }) {
                     <Heading>No Posts Available</Heading>
                 </Box>
             ) : (
-                <Grid mt={10} ml={20} mr={20}
-                    templateColumns='repeat(3, 1fr)' gap={6}
+                <SimpleGrid mt={8} ml={20} mr={20}
+                    columns={3}
+                    spacing={10}
+                    align='center'
                 >
                     {posts.map((post, i) => (
-                        <AltPostCard post={post} key={i}/>
+                        <AltPostCard post={post} key={i} />
                     ))}
 
-                </Grid>
+                </SimpleGrid>
             )}
 
 

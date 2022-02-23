@@ -26,6 +26,10 @@ export default function Navbar() {
                 <NextLink href="/">
                     Home</NextLink>
             </Box>
+            
+            
+            <Spacer />
+            
             <Box p='4' bg='orange.300'>
                 <NextLink href="/add-post">
                     Add post
@@ -34,14 +38,6 @@ export default function Navbar() {
             <Box p='4' bg='orange.400'>
                 <NextLink href="/posts">
                     View posts
-                </NextLink>
-            </Box>
-            <Spacer />
-            
-            
-            <Box p='4' bg='gray.300'>
-                <NextLink href="/">
-                    Another home button
                 </NextLink>
             </Box>
             <Box mr={20} p='4' bg='gray.400' onClick={toggleColorMode}>
