@@ -2,7 +2,7 @@ import {
     Button,
     Box,
     Input,
-    FormControl, FormErrorMessage, FormLabel, 
+    FormControl, FormErrorMessage, FormLabel,
 } from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
@@ -22,6 +22,7 @@ export default function EditPost({ posts }) {
             }
         }
         console.log("post:", post)
+        
     }, [post])
 
 
@@ -34,6 +35,11 @@ export default function EditPost({ posts }) {
         }
         return error
     }
+    function validateTitle(value) {
+        let error
+        if (!value) { error = 'Title is required' }
+        return error
+    }
     return (
         <Box
             mt={8}
@@ -42,7 +48,9 @@ export default function EditPost({ posts }) {
             w="100%"
         >
             <Formik
-                initialValues={{ name: 'Sasuke' }}
+                validateOnMount
+                enableReinitialize
+                initialValues={{ name: 'Sasuke', title: post.title }}
                 onSubmit={(values, actions) => {
                     setTimeout(() => {
                         alert(JSON.stringify(values, null, 2))
@@ -58,6 +66,16 @@ export default function EditPost({ posts }) {
                                     <FormLabel htmlFor='name'>First name</FormLabel>
                                     <Input {...field} id='name' placeholder='name' />
                                     <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                                </FormControl>
+                            )}
+                        </Field>
+                        <br />
+                        <Field name='title' validate={validateTitle}>
+                            {({ field, form }) => (
+                                <FormControl isInvalid={form.errors.title && form.touched.title}>
+                                    <FormLabel htmlFor='title'>Title</FormLabel>
+                                    <Input {...field} id='title' placeholder='title' />
+                                    <FormErrorMessage>{form.errors.title}</FormErrorMessage>
                                 </FormControl>
                             )}
                         </Field>
