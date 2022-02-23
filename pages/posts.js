@@ -39,7 +39,7 @@ export default function Posts({ posts }) {
                 <Grid mt={10} ml={20} mr={20}
                     templateColumns='repeat(3, 1fr)' gap={6}
                 >
-                    {posts.map((post, i) => (
+                    {posts.map((post) => (
                         <AltPostCard post={post} />
                     ))}
 

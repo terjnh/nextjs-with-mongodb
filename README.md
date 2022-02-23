@@ -6,8 +6,6 @@
 
 ### Before commiting code to git:
 - Remove .next
-- Change .env.local params to hide MongoDB URL
-
 
 
 
