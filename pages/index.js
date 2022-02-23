@@ -3,7 +3,7 @@ import * as React from 'react';
 import Navbar from '../components/Navbar';
 import PostCard from '../components/PostCard';
 import styles from '../styles/Home.module.css';
-import AirbnbExample from './components/AirbnbExample';
+import AirbnbExample from '../components/AirbnbExample'
 import { useColorMode } from '@chakra-ui/react';
 import { Button, Box, Image, StarIcon } from '@chakra-ui/react';
 

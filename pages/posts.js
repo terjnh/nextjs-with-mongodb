@@ -1,10 +1,9 @@
 import { Box, Center, Grid, GridItem, Heading } from '@chakra-ui/react';
 import * as React from 'react';
 import Navbar from '../components/Navbar';
-import AltPostCard from './components/AltPostCard';
+import AltPostCard from '../components/AltPostCard';
 
 export default function Posts({ posts }) {
-
 
     return (
         <div>
@@ -39,8 +38,8 @@ export default function Posts({ posts }) {
                 <Grid mt={10} ml={20} mr={20}
                     templateColumns='repeat(3, 1fr)' gap={6}
                 >
-                    {posts.map((post) => (
-                        <AltPostCard post={post} />
+                    {posts.map((post, i) => (
+                        <AltPostCard post={post} key={i}/>
                     ))}
 
                 </Grid>
